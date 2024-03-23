@@ -24,7 +24,7 @@ public class Deductions {
         this.totalContribution = 0;
     }
     
-    //Computes for SSS Deduction
+    //Computes for SSS Deduction & Getter for SSSAmount Contributions
     public double getSSSAmount(double bscSalary){
         if (bscSalary>=24750){
             SSSAmount = 1125;
@@ -164,13 +164,13 @@ public class Deductions {
         return SSSAmount;
     }
 
-
+    //Setter for SSSAmount
     public void setSSSAmount(double newSSSAmount){
         this.SSSAmount = newSSSAmount;
     }
     
     
-    // PhilHealth Getter and Setter
+    // Computes for PhilHealth contribution and Getter for PhilHealth Contribution
     public double getPhilHealthAmount(double bscSalary){
         if (bscSalary<=10000){
             PhilHealthAmount = (bscSalary*0.03)/2;
@@ -184,29 +184,14 @@ public class Deductions {
         return PhilHealthAmount;
     }
 
+    //Setter for PhilHealth Contribution
     public void setPhilHealthAmount(double newPhilHealthAmount){
         this.PhilHealthAmount = newPhilHealthAmount;
     }
     
+    
+    //computes the Tax/ TIN decution & Getter for TIN Deduction
     public double getTINAmount(double bscSalary){
-        /*if (salaryTax<=20832){
-            TINAmount = 0;
-        }
-        else if (salaryTax>=20833 && salaryTax<33333){
-            TINAmount = (salaryTax-20833)*0.20;
-        }
-        else if (salaryTax>=33333 && salaryTax<66667){
-            TINAmount = 2500+(salaryTax-33333)*0.25;
-        }
-        else if (salaryTax>=66667 && salaryTax<166667){
-            TINAmount = 10833+(salaryTax-66667)*0.30;
-        }
-        else if (salaryTax>=166667 && salaryTax<666667){
-            TINAmount = 40833.33+(salaryTax-166667)*0.32;
-        }
-        else if (salaryTax>=666667){
-            TINAmount = 200833.33+(salaryTax-666667)*0.35;
-        }*/
         
         double govMandateDeduc = getSSSAmount(bscSalary)+getPagIbigAmount(bscSalary)+getPhilHealthAmount(bscSalary);
         double salaryTax = bscSalary-govMandateDeduc;
@@ -233,10 +218,13 @@ public class Deductions {
         return TINAmount;
     }
 
+    //TIN Amount setter
     public void setTINAmount(double newTINAmount){
         this.TINAmount = newTINAmount;
     }
     
+    
+    //Computes PagIbig Contribution & Gets the Amount
     public double getPagIbigAmount(double bscSalary){
         
         if (bscSalary>=1000 && bscSalary<=1500){
@@ -251,15 +239,19 @@ public class Deductions {
         return PagIbigAmount;
     }
 
+    
+    //sets pagibig contribution
     public void setPagIbigAmount(double newPagIbigAmount){
         this.PagIbigAmount = newPagIbigAmount;
     }
     
+    //computes for the total government mandated contributions
     public double gettotalContribution(double PagIbigAmount, double SSSAmount, double PhilHealthAmount){
         totalContribution = SSSAmount+PagIbigAmount+PhilHealthAmount;
         return totalContribution;
     }
 
+    //sets total contributions
     public void settotalContribution(double newtotalContribution){
         this.totalContribution = newtotalContribution;
     }

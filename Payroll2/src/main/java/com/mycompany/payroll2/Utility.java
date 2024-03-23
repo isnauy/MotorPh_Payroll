@@ -7,6 +7,7 @@ package com.mycompany.payroll2;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 /**
@@ -17,6 +18,8 @@ public class Utility {
     // "public static" to use in other class
     public static Scanner scan = new Scanner(System.in);
     public static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+    //private static int currentID = 0;
     
     //scanner method
     public static void empScan (){
@@ -25,6 +28,7 @@ public class Utility {
         System.out.println("Output is: "+ input);
     }
     
+    //reads the employee data file
     public static void ReadFile(){
         try{
             File employeeFile = new File("C:/Users/krisn/Desktop/Payroll2/src/main/java/com/mycompany/payroll2/EmployeeList.csv");
@@ -38,6 +42,11 @@ public class Utility {
         catch (Exception e){
             System.out.println(e);
         }
+        
+
+    /*public int getNextID(){
+        return this.currentID = currentID+1;
+    }*/
     }
     
     

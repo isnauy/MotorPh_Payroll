@@ -129,6 +129,14 @@ public class Payroll2 {
             System.out.println(c.getage());
         }*/
         
-        Utility.ReadFile();
+        //Utility.ReadFile();
+        
+        TimeinTimeout time = new TimeinTimeout();
+        time.settimeout(20,0);
+        System.out.println(time.gettimein());
+        System.out.println(time.gettimeout());
+        System.out.println(time.gethoursworked(time.gettimein(), time.gettimeout())
+        );
+                
     }
 }

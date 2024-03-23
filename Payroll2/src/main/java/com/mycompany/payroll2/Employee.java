@@ -8,6 +8,8 @@ package com.mycompany.payroll2;
  *
  * @author krisn
  */
+
+//declares data type of each element
 public class Employee {
     private int empNum; //system generated; incremental
     private String lastName; //user input
@@ -27,6 +29,7 @@ public class Employee {
     private double clothingAllowance; //either 500,800 or 1000; non taxable
     private double grossSemiMonthlyRate; //system generated
     private double hourlyRate; //system generated
+    private double timeHours; //total worked hours
     
     private Deductions deduction = new Deductions();
     private double bscSalary; //user input
@@ -36,7 +39,7 @@ public class Employee {
     
 public Employee(int empNum, String lastName, String firstName, String birthday, String address, String phoneNum, String SSS, String PhilHealth, String TIN, String PagIbig, String status, String position,
         String supervisor, double bscSalary, double riceSubsidy, double phoneAllowance, double clothingAllowance, double grossSemiMonthlyRate, double hourlyRate ){
-    this.empNum = empNum;
+    this.empNum = 0;
     this.lastName = lastName;
     this.firstName = firstName;
     this.birthday = birthday;
@@ -56,6 +59,8 @@ public Employee(int empNum, String lastName, String firstName, String birthday, 
     this.grossSemiMonthlyRate = grossSemiMonthlyRate;
     this.hourlyRate = hourlyRate;
     this.netSalary = 0;
+    
+    //this.empNum = 0++;
 }
 
 public int getEmpNum(){
